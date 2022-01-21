@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <!-- normalize -->
+    <link rel="stylesheet" type="text/css" href="./style/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="./style/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Frontend Mentor | Room homepage</title>
+  </head>
+  <body>
+    <header>
+      <div id="menu-btn">
+        <img id="menu-btn-img" src="./images/icon-hamburger.svg" alt="" />
+      </div>
+      <div class="logo"><img src="./images/logo.svg" alt="" /></div>
+      <nav class="nav">
+        <ul>
+          <li>home</li>
+          <li>shop</li>
+          <li>about</li>
+          <li>contact</li>
+        </ul>
+      </nav>
+    </header>
+    <section class="body">
+      <div class="hero-image slider">
+        <img
+          class="slide fade"
+          src="./images/desktop-image-hero-1.jpg"
+          alt=""
+        />
+        <img
+          class="slide fade"
+          src="./images/desktop-image-hero-2.jpg"
+          alt=""
+        />
+        <img
+          class="slide fade"
+          src="./images/desktop-image-hero-3.jpg"
+          alt=""
+        />
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="description">
+        <span class="title" id="title"
+          >Discover innovative ways to decorate</span
+        >
+        <p class="small-text" id="description">
+          We provide unmatched quality, comfort, and style for property owners
+          across the country. Our experts combine form and function in bringing
+          your vision to life. Create a room in your own style with our
+          collection and make your property a reflection of you and what you
+          love.
+        </p>
+        <button class="shop-now">
+          SHOP NOW <img src="./images/icon-arrow.svg" alt="" />
+        </button>
+        <div class="slide-button">
+          <button class="to-left" onClick="plusSlider(-1)">
+            <img src="./images/icon-angle-left.svg" alt="" />
+          </button>
+          <button class="to-right" onClick="plusSlider(-1)">
+            <img src="./images/icon-angle-right.svg" alt="" />
+          </button>
+        </div>
+      </div>
+      <div class="small-image1">
+        <img src="./images/image-about-dark.jpg" alt="" />
+      </div>
+      <div class="about">
+        <span class="title small-title">ABOUT OUR FURNITURE</span>
+        <p class="small-text">
+          Our multifunctional collection blends design and function to suit your
+          individual taste. Make each room unique, or pick a cohesive theme that
+          bets express your interest to contemporary styles or anything in
+          between. Product specialists are available to help you create your
+          dream space.
+        </p>
+      </div>
+      <div class="small-image2">
+        <img src="./images/image-about-light.jpg" alt="" />
+      </div>
+    </section>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

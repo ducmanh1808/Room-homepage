@@ -1,0 +1,343 @@
+//Variable
+$dark-gray: hsl(0, 0%, 63%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$very-dark-gray: hsl(0, 0%, 27%);
+//Resposinve
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+@-webkit-keyframes fade {
+    from {opacity: .2}
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .2;
+    color: red}
+    to {opacity: 1;
+    color: black}
+  }
+
+* {
+  font-family: 'Spartan', sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  height: 15rem;
+  color: $white;
+  background-color: transparent;
+  z-index: 999;
+  @include mobile {
+    height: 10rem;
+  }
+  #menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 10rem;
+    color: $very-dark-gray;
+    @include mobile {
+      display: flex;
+      position: absolute;
+      padding: 2rem;
+      color: black;
+      z-index: 99;
+      img {
+        position: relative;
+        &.active {
+          content: url('../images/icon-close.svg');
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  .logo {
+    font-size: 3rem;
+    font-weight: 600;
+    padding: 0 10rem;
+    color: $white;
+    @include desktop {
+      padding: 0 6rem;
+    }
+    @include mobile {
+      height: 10rem;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    @include mobile {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: $white;
+      color: $black;
+      height: 10rem;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+    ul {
+      padding: 1.5rem;
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+      @include mobile {
+        margin-left: auto;
+      }
+      li {
+        margin-left: 2rem;
+        font-size: 1.8rem;
+        font-weight: 500;
+        padding: 1rem;
+        cursor: pointer;
+        position: relative;
+        @include desktop {
+          font-size: 1.6rem;
+        }
+        &:hover {
+          &:before {
+            display: inline-block;
+            content: '';
+            border-bottom: 0.2rem solid $white;
+            width: 4rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+.body {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .hero-image {
+    grid-area: 1 / 1 / 7 / 7;
+    @include tablet {
+      flex: 1;
+    }
+    @include mobile {
+      min-height: 360px;
+    }
+    &.slider {
+      position: relative;
+      list-style: none;
+      padding: 0;
+      z-index: 1;      
+      .slide{
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition-property: transform;
+        &.fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+          }
+      }
+    }
+  }
+  .description {
+    grid-area: 1 / 7 / 7 / 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 12rem;
+    position: relative;
+    @include desktop {
+      padding: 0 5rem;
+    }
+    @include tablet {
+      flex: 1 min-content;
+      padding: 10rem 10rem;
+    }
+    @include mobile {
+      padding: 8rem 8rem;
+    }
+    .shop-now {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 1.8rem;
+      padding-left: 0;
+      letter-spacing: 1rem;
+      font-weight: 600;
+      font-size: 1.5rem;
+      width: 30rem;
+      background-color: transparent;
+      cursor: pointer;
+      img {
+        width: 30%;
+        margin-left: 1rem;
+      }
+    }
+    .slide-button {
+      color: red;
+      width: calc(100vw / 10);
+      height: calc(100vw / 20);
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+      @include tablet {
+        width: calc(100vw / 5);
+        height: calc(100vh / 10);
+        top: calc(-100vh / 10);
+        left: auto;
+        right: 0;
+      }
+      @include mobile {
+        width: calc(100vw / 4);
+        height: calc(100vh / 15);
+        top: calc(-100vh / 15);
+      }
+      .to-left {
+        cursor: pointer;
+        flex: 1;
+        background-color: $black;
+        img {
+          width: 30%;
+          height: 30%;
+        }
+      }
+      .to-right {
+        flex: 1;
+        cursor: pointer;
+        background-color: $black;
+        img {
+          width: 30%;
+          height: 30%;
+        }
+      }
+    }
+  }
+  .small-image1 {
+    grid-area: 7 / 1 / 10 / 4;
+    @include tablet {
+      flex: 1;
+    }
+  }
+  .about {
+    grid-area: 7 / 4 / 10 / 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5rem;
+    .small-text {
+      margin-bottom: 0;
+    }
+    @include tablet {
+      flex: 1;
+      padding: 10rem 10rem;
+    }
+    @include mobile {
+      padding: 8rem 8rem;
+    }
+  }
+  .small-image2 {
+    grid-area: 7 / 8 / 10 / 11;
+    @include tablet {
+      flex: 1;
+    }
+  }
+  .title {
+    color: $black;
+    font-weight: 600;
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    opacity: 1;
+    transition: opacity 0.5s;
+    @include desktop {
+      font-size: 3rem;
+    }
+    &.hide {
+        opacity: 0 !important;
+    }
+    &.small-title {
+      font-size: 2rem;
+      letter-spacing: 0.4rem;
+      @include desktop {
+        font-size: 1.6rem;
+      }
+    }
+  }
+  .small-text {
+    font-size: 1.5rem;
+    color: $dark-gray;
+    margin-bottom: 3rem;
+    line-height: 2.5rem;
+    opacity: 1;
+    transition: opacity 0.5s;
+    &.hide {
+        opacity: 0 !important;
+    }
+    @include desktop {
+      font-size: 1.3rem;
+      line-height: 2rem;
+    }
+  }
+}
