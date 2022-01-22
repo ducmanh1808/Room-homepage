@@ -70,7 +70,6 @@ header {
   #menu-btn {
     display: none;
     cursor: pointer;
-    font-size: 10rem;
     color: $very-dark-gray;
     @include mobile {
       display: flex;
@@ -88,7 +87,6 @@ header {
     }
   }
   .logo {
-    font-size: 3rem;
     font-weight: 600;
     padding: 0 10rem;
     color: $white;
@@ -129,13 +127,13 @@ header {
       }
       li {
         margin-left: 2rem;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 500;
         padding: 1rem;
         cursor: pointer;
         position: relative;
         @include desktop {
-          font-size: 1.6rem;
+          font-size: 1.4rem;
         }
         &:hover {
           &:before {
@@ -225,7 +223,7 @@ header {
       padding-left: 0;
       letter-spacing: 1rem;
       font-weight: 600;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       width: 30rem;
       background-color: transparent;
       cursor: pointer;
@@ -307,26 +305,26 @@ header {
   .title {
     color: $black;
     font-weight: 600;
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 4rem;
     opacity: 1;
     transition: opacity 0.5s;
     @include desktop {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     &.hide {
         opacity: 0 !important;
     }
     &.small-title {
-      font-size: 2rem;
+      font-size: 1.7rem;
       letter-spacing: 0.4rem;
       @include desktop {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
       }
     }
   }
   .small-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: $dark-gray;
     margin-bottom: 3rem;
     line-height: 2.5rem;
@@ -336,7 +334,7 @@ header {
         opacity: 0 !important;
     }
     @include desktop {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       line-height: 2rem;
     }
   }
